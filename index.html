@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="stylesheet.css" />
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width">
+        <script src="codesample.js"></script>
+        <title>SpecOS</title>
+    </head>
+    <body id="body">
+        <div class="tape" id="leftright"></div>
+        <div class="tape" id="rightleft"></div>
+        <div id="top">
+            <center>
+            <big style="font-size: 40px; font-weight: bold;">IN CONSTRUCTION</big><br>
+            SpecOS is an operating system project from scratch, written in pure C and assembly.<br><br><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fghloc.vercel.app%2Fapi%2FjakeSteinburger%2FSpecOS%2Fbadge%3Ffilter%3D.c%2C.asm%2C.h%2C.sh&query=%24.message&label=lines%20of%20code&color=red" /> <img src="https://img.shields.io/github/languages/top/jakeSteinburger/SpecOS?logo=C&label=" /> <img src="https://img.shields.io/github/license/jakeSteinburger/SpecOS" /> <img  id="commitbadge" src="https://img.shields.io/github/commit-activity/m/jakeSteinburger/SpecOS/main" /><br><br></center>
+            <b>Is this a Linux distro?</b> No! SpecOS uses it's very own monolithic kernel, written completely from scratch.
+            <br><br><b>Specs, please?</b> FAT32 file system, 32 bit x86 architecture only, supports ATA hard disks, uses a monolithic kernel with a bitmap allocator. More info soon.
+            <br><br><b>Current status?</b> SpecOS is currently mostly a bunch of drivers mushed into a kernel, without a userspace yet. I've written drivers mostly for IO, time/date and a file system.
+            <br><br><b>What's special about it?</b> Literally nothing lol. This is just a project I'm doing to learn about kernel development, it's not really going to be... good.<br><br>
+            <small>Before you ask, yes, the background text is a real snippet of code from SpecOS.</small><br>
+            <a style="color: white;" target="_blank" href="https://github.com/jakeSteinburger/SpecOS"><i class="fa fa-github"></i></a> |
+            <a href="https://reddit.com/u/JakeStbu" style="color: white;"><i style="background-color: red; border-radius: 10px;" class="fa fa-reddit"></i></a> |
+            <a href="mailto:jake@kendasi.com" style="color: white;"><i class="fa fa-envelope"></i></a>
+        </div>
+        <script>    
+            const vw = document.documentElement.clientWidth;
+            const vh = document.documentElement.clientHeight;
+            function getTapeLength() {
+                const result = Math.sqrt(Math.pow(vw, 2) + Math.pow(vh, 2)) + 10;
+                document.getElementById("leftright").style.height = result + "px";
+                document.getElementById("rightleft").style.height = result + "px";
+                return result;
+            }
+
+            function getTapeAngleLeft() {
+                const hyp = getTapeLength();
+                const result = -((vh / hyp) * 1000);
+                document.getElementById("leftright").style.transform = "rotate(" + result + "deg)";
+            }
+
+            function getTapeAngleRight() {
+                const hyp = getTapeLength();
+                const result = ((vh / hyp) * 1000);
+                document.getElementById("rightleft").style.transform = "rotate(" + result + "deg)";
+            }
+
+            scrollLeft =
+                window.pageXOffset || document.documentElement.scrollLeft;
+
+            scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop;
+            
+            window.onscroll = function() {
+                window.scrollTo(scrollLeft, scrollTop);
+            };
+
+            getTapeLength();
+            getTapeAngleLeft();
+            getTapeAngleRight();
+
+            document.getElementById("body").innerHTML += stuff;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+.tape {
+    width: 100px;
+    background-color: red;
+    position: absolute;
+    top: -65vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: url("ribbontexture.png");
+}
+
+#leftright {
+    left: 45vw;
+}
+
+#rightleft {
+    right: 45vw;
+}
+
+body {
+    background-color: black;
+    color: green;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+* {
+    font-family: helvetica;
+}
+
+#top {
+    z-index: 999;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    color: white;
+    background-color: #101010;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 800px) {
+    #top {
+        height: 100vh;
+        transform: translate(-50%, 0px);
+        top: 0px;
+        width: 80vw;
+    }
+    #commitbadge {
+        display: none;
+    }
+}
+
+h1 {
+    font-size: 50px;
+}
